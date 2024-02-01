@@ -5,7 +5,7 @@ pipeline{
         stage('build') {
             steps {
                 //ceci est un commentaire
-                echo 'je suis en train de faire le build'
+                echo 'je suis en train de faire le build depuis bidon'
                 
             }
         }
