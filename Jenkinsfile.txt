@@ -1,0 +1,41 @@
+pipeline{
+    agent any
+    
+    stages{
+        stage('build') {
+            steps {
+                //ceci est un commentaire
+                echo 'je suis en train de faire le build'
+                
+            }
+        }
+        stage('test') {
+             steps {
+                echo 'je suis en train de faire les tests'
+                //error 'ouppss'
+            }
+            
+        }
+        stage('deploy') {
+            steps {
+                echo 'je suis en train de deployer'
+            }
+        }
+    }
+    post {
+        
+        failure {
+            
+            echo 'le pipeline s a planté'
+            echo "envoi d'un email"
+            //mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'echue', to: 'tavelpe@gmail.com'
+            
+        }
+        success {
+            echo "Tout s'est bien passé"
+            
+        }
+        
+    }
+
+}
